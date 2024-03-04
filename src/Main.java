@@ -5,11 +5,12 @@ public class Main {
         int deposit = 15000;
         int capital = 0;
         int totalCapital = 2_459_000;
+        double bankInterest = (double) 1 / 100;
         int monthOfCapital = 0;
 
         while (capital < totalCapital) {
             monthOfCapital++;
-            capital = deposit + capital + capital / 100;
+            capital = (int) (deposit + capital + capital * bankInterest);
             System.out.println("Месяц " + monthOfCapital + ", сумма накоплений равна " + capital + " рублей");
         }
         System.out.println(monthOfCapital + " месяцев потребуется, чтобы накопить более " + totalCapital + " рублей.");
@@ -41,9 +42,10 @@ public class Main {
         int vasilijCapital = 15000;
         int vasilijTotalCapital = 12_000_000;
         int month = 0;
+        bankInterest = (double) 7 / 100;
         while (vasilijCapital < vasilijTotalCapital) {
             month++;
-            vasilijCapital = vasilijCapital + vasilijCapital * 7 / 100;
+            vasilijCapital = (int) (vasilijCapital + vasilijCapital * bankInterest);
             System.out.println("Месяц " + month + ", сумма накоплений " + vasilijCapital + " рублей");
         }
 
@@ -52,7 +54,7 @@ public class Main {
         month = 0;
         while (vasilijCapital < vasilijTotalCapital) {
             month++;
-            vasilijCapital = vasilijCapital + vasilijCapital * 7 / 100;
+            vasilijCapital = (int) (vasilijCapital + vasilijCapital * bankInterest);
             if (month % 6 != 0) {
                 continue;
             }
@@ -61,8 +63,9 @@ public class Main {
 
         System.out.println("Задача 6.");
         vasilijCapital = 15000;
-        for (int i = 1; i <= 9 * 12; i++) {
-            vasilijCapital = vasilijCapital + vasilijCapital * 7 / 100;
+        int periodOfCapital = 9 * 12;
+        for (int i = 1; i <= periodOfCapital; i++) {
+            vasilijCapital = (int) (vasilijCapital + vasilijCapital * bankInterest);
             if (i % 6 == 0) {
                 System.out.println("Месяц " + i + ", сумма накоплений " + vasilijCapital + " рублей");
             }
